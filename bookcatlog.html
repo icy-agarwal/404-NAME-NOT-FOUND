@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog - Book Connect</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">Book Connect</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Book Catalog</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Profile</a></li>
+            </ul>
+        </nav>
+        <div class="search-cart">
+            <input type="text" id="search-bar" placeholder="Search books by title or author..." onkeyup="searchBooks()" />
+            <div class="cart-icon">🛒</div>
+        </div>
+    </header>
+
+    <section class="book-catalog">
+        <h2>Our Full Book Collection</h2>
+        <div id="book-list" class="book-cards">
+            <!-- Full list of books -->
+            <div class="book-card" data-title="The Great Gatsby" data-author="F. Scott Fitzgerald">
+                <img src="https://images.penguinrandomhouse.com/cover/9780743273565" alt="The Great Gatsby">
+                <h3>The Great Gatsby</h3>
+                <p>F. Scott Fitzgerald</p>
+                <p class="price">₹899</p>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p>A classic tale of love, wealth, and the American dream in the 1920s.</p>
+                <button>Add to Wishlist</button>
+            </div>
+            <div class="book-card" data-title="Atomic Habits" data-author="James Clear">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81wrjYBQt8L.jpg" alt="Atomic Habits">
+                <h3>Atomic Habits</h3>
+                <p>James Clear</p>
+                <p class="price">₹999</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A revolutionary book on building good habits and breaking bad ones.</p>
+                <button>Add to Wishlist</button>
+            </div>
+            <div class="book-card" data-title="To Kill a Mockingbird" data-author="Harper Lee">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81gepf1eP9L.jpg" alt="To Kill a Mockingbird">
+                <h3>To Kill a Mockingbird</h3>
+                <p>Harper Lee</p>
+                <p class="price">₹1,199</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A novel that explores themes of racial injustice and moral growth.</p>
+                <button>Add to Wishlist</button>
+            </div>
+            <div class="book-card" data-title="1984" data-author="George Orwell">
+                <img src="https://m.media-amazon.com/images/I/71kxa1-0mfL.AC_UF894,1000_QL80.jpg" alt="1984">
+                <h3>1984</h3>
+                <p>George Orwell</p>
+                <p class="price">₹1,200</p>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p>A dystopian novel about totalitarianism and the loss of individuality.</p>
+                <button>Add to Wishlist</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Book Connect. All rights reserved.</p>
+            <div class="social-media">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
