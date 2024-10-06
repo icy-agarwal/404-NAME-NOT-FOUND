@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Bookstore</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 40px; /* Increased padding */
+            background: linear-gradient(to left, #ffffff, #ffffff); /* Light blue gradient */
+            display: flex;
+            flex-direction: column; /* Vertical layout */
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        header {
+            background-color: #00509e; /* Office blue */
+            color: white;
+            padding: 30px; /* Increased padding */
+            border-radius: 8px;
+            margin-bottom: 40px; /* Increased margin */
+        }
+        h1 {
+            position: relative; /* Position relative for the pseudo-element */
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h1::after {
+            content: ""; /* Create an empty content for the pseudo-element */
+            display: block; /* Make it a block element */
+            width: 100%; /* Full width */
+            height: 2px; /* Height of the underline */
+            background-color: white; /* Color of the underline */
+            position: absolute; /* Position it absolutely */
+            left: 0; /* Align to the left */
+            bottom: -10px; /* Adjust the distance from the text */
+        }
+        h2 {
+            color: #00509e;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px; /* Increased padding */
+            margin-top: 40px; /* Increased margin */
+        }
+        .form-group {
+            background: #e0f7fa; /* Office blue */
+            border-radius: 5px;
+            padding: 30px; /* Increased padding */
+            box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+            margin-bottom: 40px; /* Increased margin for spacing between boxes */
+            color: white;
+            width: 100%;
+            max-width: 500px;
+            text-align: left; /* Align text to the left */
+        }
+        input, textarea, button {
+            padding: 12px; /* Increased padding */
+            margin: 12px 0; /* Increased margin */
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            width: calc(100% - 26px);
+            font-size: 1em;
+            transition: border-color 0.3s;
+            background: #ffffff; /* Input background */
+            color: #ffffff; /* Input text color */
+        }
+        input:focus, textarea:focus {
+            border-color: white;
+            outline: none;
+        }
+        button {
+            background-color: #00509e;
+            color: #ffffff; /* Office blue */
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #e2e6ea; /* Light gray for hover */
+            transform: scale(1.05);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            color: white; /* List text color */
+        }
+        li {
+            background-color: #00509e; /* Semi-transparent white */
+            padding: 15px;
+            margin: 10px 0; /* Increased margin */
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff; /* List item text color */
+        }
+        .delete-button {
+            background-color: #dc3545; /* Red */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .delete-button:hover {
+            background-color: #c82333;
+            transform: scale(1.05);
+        }
+        @media (max-width: 600px) {
+            .form-group {
+                padding: 20px; /* Adjusted for smaller screens */
+            }
+            input, textarea, button {
+                width: calc(100% - 18px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+
+    <div class="form-group">
+        <h2>Add New Book</h2>
+        <input type="text" id="bookTitle" placeholder="Title" />
+        <input type="text" id="bookAuthor" placeholder="Author" />
+        <input type="text" id="bookGenre" placeholder="Genre" />
+        <input type="number" id="bookPrice" placeholder="Price" />
+        <input type="text" id="bookCoverImage" placeholder="Cover Image URL" />
+        <button onclick="addBook()">Add Book</button>
+        
+        <h2>Books List</h2>
+        <ul id="booksList"></ul>
+    </div>
+
+    <div class="form-group">
+        <h2>Add New Event</h2>
+        <input type="text" id="eventTitle" placeholder="Event Title" />
+        <input type="date" id="eventDate" />
+        <input type="time" id="eventTime" />
+        <textarea id="eventDescription" placeholder="Description" rows="4"></textarea>
+        <button onclick="addEvent()">Add Event</button>
+
+        <h2>Events List</h2>
+        <ul id="eventsList"></ul>
+    </div>
+
+    <script>
+        // Predefined books
+        const predefinedBooks = [
+            { title: 'Home and the World', author: 'Rabindranath Tagore', price: 150.00 },
+            { title: 'No Mans Nightingale', author: 'Ruth Rendell', price: 450.00 },
+            { title: 'Hind Swaraj', author: 'Mahatma Gandhi', price: 700.00 },
+            { title: 'Trouble in Paradise', author: 'Robert B. Parker', price: 1050.00 },
+            { title: 'Dharmayoddha Kalki', author: 'Kevin Missal', price: 700.00 },
+            { title: 'Satyayoddha Kalki', author: 'Kevin Missal', price: 850.00 },
+            { title: 'To Kill a Mockingbird', author: 'Harper Lee', price: 1199.00 },
+            { title: 'Atomic Habits', author: 'James Clear', price: 999.00 },
+            { title: '1984', author: 'George Orwell', price: 1200.00 },
+            { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', price: 899.00 },
+            { title: 'The Alchemist', author: 'Paulo Coelho', price: 850.00 },
+        ];
+
+        // Predefined events
+        const predefinedEvents = [
+            { title: 'Author Meet & Greet', date: '2024-10-15', time: '14:00', description: 'Join us for a special event featuring local author Jane Smith as she discusses her latest novel and signs copies.' },
+            { title: 'Poetry Reading Night', date: '2024-10-20', time: '18:00', description: 'An evening of verse! Local poets will read their works, followed by an open mic session for attendees.' },
+            { title: 'Book Club: Historical Fiction', date: '2024-10-25', time: '19:00', description: 'Join our monthly book club to discuss "The Nightingale" by Kristin Hannah. Snacks and drinks provided.' },
+            { title: 'Children’s Storytime', date: '2024-10-28', time: '10:30', description: 'Bring your little ones for a fun morning of storytelling and crafts, featuring classic children\'s books.' },
+            { title: 'Writing Workshop: Crafting Short Stories', date: '2024-11-01', time: '13:00', description: 'A hands-on workshop led by author Mark Johnson, focused on developing engaging short stories.' },
+            { title: 'Halloween Book Fair', date: '2024-11-04', time: '10:00', description: 'Join us for a spooky day of special discounts on all horror and thriller books. Costumes encouraged!' },
+            { title: 'Literary Trivia Night', date: '2024-11-10', time: '18:00', description: 'Test your literary knowledge at our trivia night! Prizes for the winning team and refreshments available.' },
+            { title: 'Themed Book Swap', date: '2024-11-15', time: '11:00', description: 'Bring your gently used books and swap them for new reads! This months theme: mystery and suspence.'},
+    ];
+
+    // Function to add a book to the list
+    function addBook() {
+            const title = document.getElementById('bookTitle').value;
+            const author = document.getElementById('bookAuthor').value;
+            const price = parseFloat(document.getElementById('bookPrice').value);
+            const coverImage = document.getElementById('bookCoverImage').value;
+
+            if (title && author && !isNaN(price)) {
+                const newBook = { title, author, price };
+                predefinedBooks.push(newBook);
+                displayBooks();
+                clearBookInputs();
+            } else {
+                alert('Please fill in all fields correctly.');
+            }
+        }
+
+        // Function to display books in the list
+        function displayBooks() {
+            const booksList = document.getElementById('booksList');
+            booksList.innerHTML = '';
+            predefinedBooks.forEach(book => {
+                const li = document.createElement('li');
+                li.textContent = `${book.title} by ${book.author} - ₹${book.price.toFixed(2)}`;
+                booksList.appendChild(li);
+            });
+        }
+
+        // Function to clear book input fields
+        function clearBookInputs() {
+            document.getElementById('bookTitle').value = '';
+            document.getElementById('bookAuthor').value = '';
+            document.getElementById('bookPrice').value = '';
+            document.getElementById('bookCoverImage').value = '';
+        }
+
+        // Function to add an event to the list
+        function addEvent() {
+            const title = document.getElementById('eventTitle').value;
+            const date = document.getElementById('eventDate').value;
+            const time = document.getElementById('eventTime').value;
+            const description = document.getElementById('eventDescription').value;
+
+            if (title && date && time && description) {
+                const newEvent = { title, date, time, description };
+                predefinedEvents.push(newEvent);
+                displayEvents();
+                clearEventInputs();
+            } else {
+                alert('Please fill in all fields correctly.');
+            }
+        }
+
+        // Function to display events in the list
+        function displayEvents() {
+            const eventsList = document.getElementById('eventsList');
+            eventsList.innerHTML = '';
+            predefinedEvents.forEach(event => {
+                const li = document.createElement('li');
+                li.textContent = `${event.title} on ${event.date} at ${event.time} - ${event.description}`;
+                eventsList.appendChild(li);
+            });
+        }
+
+        // Function to clear event input fields
+        function clearEventInputs() {
+            document.getElementById('eventTitle').value = '';
+            document.getElementById('eventDate').value = '';
+            document.getElementById('eventTime').value = '';
+            document.getElementById('eventDescription').value = '';
+        }
+
+        // Display predefined books and events on page load
+        window.onload = function() {
+            displayBooks();
+            displayEvents();
+        };
+    </script>
+</body>
+</html>
