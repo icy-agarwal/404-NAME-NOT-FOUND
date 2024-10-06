@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Connect</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #0078d4, #00bcd4); /* Subtle blue gradient */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Container for main content */
+        .container {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            max-width: 1000px;
+            margin: 20px;
+            width: 90%; /* Responsive design */
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in animation */
+        }
+
+        /* Title header styling */
+        h1 {
+            color: #0078d4;
+            font-size: 3em;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for the title */
+        }
+
+        /* Individual bookstore card styling */
+        .bookstore {
+            background: #f0f8ff; /* Very light blue for bookstore cards */
+            border-radius: 15px;
+            padding: 25px;
+            margin: 15px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Hover effect on bookstore cards */
+        .bookstore:hover {
+            transform: translateY(-10px); /* Lifts the card when hovered */
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); /* Elevates shadow */
+        }
+
+        /* Bookstore title */
+        .bookstore h2 {
+            color: #0078d4;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #00bcd4; /* Border underline for separation */
+        }
+
+        /* Bookstore address and description */
+        .bookstore p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* Accent for strong text */
+        .bookstore p strong {
+            font-weight: bold;
+            color: #0078d4; /* Highlighted text */
+        }
+
+        /* Subtle fade-in animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .bookstore {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Book Connect - Our Bookstores</h1>
+
+        <div class="bookstore" style="font-size: 28px; color: rgb(0,120,212);">
+            <nav>
+                <ul>
+                    <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">The Enchanted Shelf</a>
+                </ul>
+            </nav>
+        
+            <p><strong>Address:</strong> 123 Book Lane, Storytown</p>
+            <p><strong>Description:</strong> A whimsical bookstore filled with tales of magic and adventure.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Whispers of the Past</a>
+            <p><strong>Address:</strong> 456 Novel Ave, Storytown</p>
+            <p><strong>Description:</strong> Discover rare books and vintage classics in a cozy atmosphere.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Pages and Petals</a>
+            <p><strong>Address:</strong> 789 Literary Blvd, Storytown</p>
+            <p><strong>Description:</strong> A serene bookstore with a garden cafe, perfect for book lovers.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Moonlit Manuscripts</a>
+            <p><strong>Address:</strong> 321 Twilight Way, Storytown</p>
+            <p><strong>Description:</strong> A charming shop featuring a selection of poetry and prose.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Quills & Co.</a>
+            <p><strong>Address:</strong> 654 Ink St, Storytown</p>
+            <p><strong>Description:</strong> A writer's haven with supplies and literary events.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Fable and Folklore</a>
+            <p><strong>Address:</strong> 987 Story St, Storytown</p>
+            <p><strong>Description:</strong> A bookstore dedicated to myths, legends, and modern tales.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">The Book Nook</a>
+            <p><strong>Address:</strong> 159 Reader's Rd, Storytown</p>
+            <p><strong>Description:</strong> A quaint corner shop with a cozy reading space.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Serendipity Reads</a>
+            <p><strong>Address:</strong> 753 Chance Blvd, Storytown</p>
+            <p><strong>Description:</strong> Find unexpected treasures in a warm and inviting setting.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Starlit Stories</a>
+            <p><strong>Address:</strong> 852 Dream St, Storytown</p>
+            <p><strong>Description:</strong> A bookstore that specializes in fantasy and sci-fi novels.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">The literary Lantern</a>
+            <p><strong>Address:</strong> 246 Glow Way, Storytown</p>
+            <p><strong>Description:</strong> A cozy atmosphere perfect for evening book readings.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Timeless Tales</a>
+            <p><strong>Address:</strong> 357 Old Story Rd, Storytown</p>
+            <p><strong>Description:</strong> A quaint spot for classic literature lovers.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Book Haven</a>
+            <p><strong>Address:</strong> 468 Fiction Ave, Storytown</p>
+            <p><strong>Description:</strong> A cozy place to find your next favorite book.</p>
+        </div>
+
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Chapter & Charms</a>
+            <p><strong>Address:</strong> 579 Tale Rd, Storytown</p>
+            <p><strong>Description:</strong> A charming store with a magical selection of books.</p>
+        </div>
+
+    
+        <div class="bookstore">
+            <a href="frontpage.html" style="font-weight: bold; color: rgb(0,120,212); font-size: 28px;">Stories Untold</a>
+            <p><strong>Address:</strong> 902 Narrative Way, Storytown</p>
+            <p><strong>Description:</strong> A hidden gem featuring unique stories.</p>
+        </div>
+    </div>
+
+</body>
+</html>
