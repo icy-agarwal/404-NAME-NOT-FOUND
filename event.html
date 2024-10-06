@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events - Book Connect</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #0078d4, #00bcd4); /* Gradient background */
+            color: #333; /* Slightly darker text for contrast */
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.9); /* Transparent white for header */
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #0078d4; /* Office Blue */
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #005a9e; /* Darker blue */
+            margin-top: 10px;
+        }
+
+        /* Event List Section */
+        .event-list {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        /* Individual Event */
+        .event {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .event:last-child {
+            border-bottom: none;
+        }
+
+        /* Hover effect for event cards */
+        .event:hover {
+            background-color: #f0f8ff;
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-title {
+            font-size: 1.8rem;
+            color: #0078d4;
+            margin-bottom: 10px;
+        }
+
+        .event-description {
+            font-size: 1rem;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .event-price {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #005a9e; /* Darker blue */
+            margin: 10px 0;
+        }
+
+        /* Buy Button with Animation */
+        .buy-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .buy-button:hover {
+            background-color: #005a9e; /* Darker blue */
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+        .buy-button:active {
+            transform: scale(0.95); /* Slight shrink on click */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .event-title {
+                font-size: 1.5rem;
+            }
+
+            .event-description {
+                font-size: 0.9rem;
+            }
+
+            .buy-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Book Connect - Upcoming Events</h1>
+        <p>Your gateway to exciting literary experiences!</p>
+    </header>
+
+    <!-- Event Section -->
+    <div class="event-list">
+        <div class="event">
+            <h2 class="event-title">1. Author Meet & Greet: Jane Doe</h2>
+            <p class="event-description">Join us for an exclusive meet and greet with the bestselling author Jane Doe, as she discusses her new novel and shares insights into her creative process.</p>
+            <p class="event-price">Price: ₹1,200</p> <!-- Updated price -->
+            <button class="buy-button">Buy Ticket</button>
+        </div>
+
+        <div class="event">
+            <h2 class="event-title">2. Poetry Slam Night</h2>
+            <p class="event-description">Come and witness an exciting night of poetry performances from local artists. This interactive event encourages audience participation!</p>
+            <p class="event-price">Price: ₹800</p> <!-- Updated price -->
+            <button class="buy-button">Buy Ticket</button>
+        </div>
+
+        <div class="event">
+            <h2 class="event-title">3. Children's Storytelling Workshop</h2>
+            <p class="event-description">A fun and engaging storytelling session for kids aged 5-12. A perfect opportunity for young readers to explore their imagination!</p>
+            <p class="event-price">Price: ₹400</p> <!-- Updated price -->
+            <button class="buy-button">Buy Ticket</button>
+        </div>
+    </div>
+
+</body>
+</html>
