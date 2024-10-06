@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookConnect - Customer Profile</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* Light background */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: #0078d4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffdf5c;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slide-in 0.8s forwards;
+        }
+
+        .profile-picture {
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            margin: 15px 0;
+            color: #0078d4;
+            font-weight: 600;
+        }
+
+        .profile-title {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn-edit {
+            background-color: #0078d4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn-edit:hover {
+            background-color: #005a9e;
+            transform: scale(1.05);
+        }
+
+        /* Section Heading */
+        .section-heading h2 {
+            font-size: 1.6rem;
+            color: #0078d4;
+            margin-bottom: 15px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fade-in-up 1s forwards;
+        }
+
+        /* Personal Info Section */
+        .personal-info-section {
+            background-color: white;
+            padding: 30px;
+            margin: 40px auto;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slide-in 0.8s 0.2s forwards;
+        }
+
+        .user-details p {
+            font-size: 1.1rem;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        /* Purchase History Section */
+        .purchase-history-section {
+            background-color: white;
+            padding: 30px;
+            margin: 40px auto;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slide-in 0.8s 0.4s forwards;
+        }
+
+        .purchase-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .purchase-table th, .purchase-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .purchase-table th {
+            background-color: #0078d4;
+            color: white;
+            font-weight: 600;
+        }
+
+        .purchase-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Wishlist Section */
+        .wishlist-section {
+            background-color: white;
+            padding: 30px;
+            margin: 40px auto;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slide-in 0.8s 0.6s forwards;
+        }
+
+        .wishlist-books .book {
+            background-color: #f4f4f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .wishlist-books .book p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0078d4;
+            color: white;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes slide-in {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-up {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-section, .personal-info-section, .purchase-history-section, .wishlist-section {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .profile-name {
+                font-size: 1.5rem;
+            }
+
+            .btn-edit {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">BookConnect</div>
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Cart</a>
+            <a href="#">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-picture">
+        <h1 class="profile-name">Customer Name</h1>
+        <p class="profile-title">Regular Customer</p>
+        <button class="btn-edit">Edit Profile</button>
+    </section>
+
+    <!-- Personal Information Section -->
+    <section class="personal-info-section">
+        <div class="section-heading">
+            <h2>Personal Information</h2>
+        </div>
+        <div class="user-details">
+            <p><strong>Email:</strong> janedoe@example.com</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Customer ID:</strong> CST123456</p>
+        </div>
+    </section>
+
+    <!-- Purchase History Section -->
+    <section class="purchase-history-section">
+        <div class="section-heading">
+            <h2>Recent Purchases</h2>
+        </div>
+        <table class="purchase-table">
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                    <th>Purchase Date</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>The Great Gatsby</td>
+                    <td>F. Scott Fitzgerald</td>
+                    <td>09/20/2024</td>
+                    <td>₹899</td>
+                </tr>
+                <tr>
+                    <td>Atomic Habits</td>
+                    <td>James Clear</td>
+                    <td>08/15/2024</td>
+                    <td>₹999</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Wishlist Section -->
+    <section class="wishlist-section">
+        <div class="section-heading">
+            <h2>Wishlisted Books</h2>
+        </div>
+        <div class="wishlist-books">
+            <div class="book">
+                <p><strong>Title:</strong> To Kill a Mockingbird</p>
+                <p><strong>Author:</strong> Harper Lee</p>
+            </div>
+            <div class="book">
+                <p><strong>Title:</strong> 1984</p>
+                <p><strong>Author:</strong> George Orwell</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 BookStore. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>
