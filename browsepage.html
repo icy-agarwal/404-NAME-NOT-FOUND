@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="browsepage.css">
+    <title>Book Catalog - Book Connect</title>
+</head>
+<body>
+    <header>
+        
+        <div class="logo">Book Connect</div>
+        <nav>
+            <ul>
+                
+            </ul>
+        </nav>
+        <div class="search-cart">
+            <input type="text" id="search-bar" placeholder="Search books..." oninput="searchBooks()">
+            <div class="cart-icon">🛒</div>
+        </div>
+    </header>
+
+    <section class="catalog">
+        <h2>Book Catalog</h2>
+        <div class="book-cards">
+            <!-- All books content -->
+            <div class="book-card" data-title="The Great Gatsby" data-author="F. Scott Fitzgerald">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg" alt="The Great Gatsby">
+                <h3>The Great Gatsby</h3>
+                <p>F. Scott Fitzgerald</p>
+                <p class="price">₹899</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A story of love and betrayal in the Jazz Age.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="Atomic Habits" data-author="James Clear">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/513Y5o-DYtL.jpg" alt="Atomic Habits">
+                <h3>Atomic Habits</h3>
+                <p>James Clear</p>
+                <p class="price">₹999</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A guide to building good habits and breaking bad ones.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="To Kill a Mockingbird" data-author="Harper Lee">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg/828px-To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg" alt="To Kill a Mockingbird">
+                <h3>To Kill a Mockingbird</h3>
+                <p>Harper Lee</p>
+                <p class="price">₹1199</p>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p>A gripping novel about racism and injustice in the Deep South.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="Home and the World" data-author="Rabindranath Tagore">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhck3AuEdrRuv3a005q6alSTZRoWtqQb0s4g&s" alt="Home and the World">
+                <h3>Home and the World</h3>
+                <p>Rabindranath Tagore</p>
+                <p class="price">₹150</p>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+                <p>A story exploring the conflict between tradition and modernity.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="No Mans Nightingale" data-author="Ruth Rendell">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvBn2VrGJ6VfQCaaiSw45gyYqRSTff7KDPiw&s" alt="No Man's Nightingale">
+                <h3>No Man's Nightingale</h3>
+                <p>Ruth Rendell</p>
+                <p class="price">₹450</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A gripping crime novel from the master of suspense.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="Hind Swaraj" data-author="Mahatma Gandhi">
+                <img src="https://cdn.kobo.com/book-images/4b968856-0742-49ef-8aec-7c2f2fbe5967/1200/1200/False/hind-swaraj-3.jpg" alt="Hind Swaraj">
+                <h3>Hind Swaraj</h3>
+                <p>Mahatma Gandhi</p>
+                <p class="price">₹700</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A political text outlining Gandhi's vision for Indian independence.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="Trouble in Paradise" data-author="Robert B. Parker">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/2f/TroubleInParadise.jpg" alt="Trouble in Paradise">
+                <h3>Trouble in Paradise</h3>
+                <p>Robert B. Parker</p>
+                <p class="price">₹1050</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A thrilling detective novel filled with unexpected twists.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="Dharmayoddha Kalki" data-author="Kevin Missal">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1506612407i/36318925.jpg" alt="Dharmayoddha Kalki">
+                <h3>Dharmayoddha Kalki</h3>
+                <p>Kevin Missal</p>
+                <p class="price">₹700</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A gripping tale blending mythology with modern storytelling.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="Satyayoddha Kalki" data-author="Kevin Missal">
+                <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1538411280i/42110705.jpg" alt="Satyayoddha Kalki">
+                <h3>Satyayoddha Kalki</h3>
+                <p>Kevin Missal</p>
+                <p class="price">₹850</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A continuation of the epic saga of Kalki, the Hindu savior.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="1984" data-author="George Orwell">
+                <img src="https://darlingaxe.com/cdn/shop/articles/1984_Plot_Analysis_2651x.jpg?v=1702508448" alt="1984">
+                <h3>1984</h3>
+                <p>George Orwell</p>
+                <p class="price">₹1200</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A dystopian novel that explores totalitarianism and surveillance.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+
+            <div class="book-card" data-title="The Alchemist" data-author="Paulo Coelho">
+                <img src="https://static.toiimg.com/thumb/msid-103831792,width-1280,height-720,resizemode-4/103831792.jpg" alt="The Alchemist">
+                <h3>The Alchemist</h3>
+                <p>Paulo Coelho</p>
+                <p class="price">₹850</p>
+                <div class="rating">⭐⭐⭐⭐</div>
+                <p>A philosophical tale about following your dreams.</p>
+                <button class="wishlist-btn">Add to Wishlist</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function searchBooks() {
+            const searchInput = document.getElementById('search-bar').value.toLowerCase();
+            const books = document.querySelectorAll('.book-card');
+
+            books.forEach((book) => {
+                const title = book.getAttribute('data-title').toLowerCase();
+                const author = book.getAttribute('data-author').toLowerCase();
+
+                if (title.includes(searchInput) || author.includes(searchInput)) {
+                    book.style.display = '';
+                } else {
+                    book.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
